@@ -1,0 +1,10 @@
+
+1. Making new Employee/Customer
+2. Making new Account
+3. Making new Card and assigning it to a account
+4. Making transactions
+5. Listing account details 
+6. Listing meeting details
+
+
+Currency conversion when making transactions!

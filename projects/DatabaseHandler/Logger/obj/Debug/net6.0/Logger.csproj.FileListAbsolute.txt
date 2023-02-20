@@ -1,0 +1,12 @@
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\Logger\bin\Debug\net6.0\Logger.deps.json
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\Logger\bin\Debug\net6.0\Logger.dll
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\Logger\bin\Debug\net6.0\Logger.pdb
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\Logger\obj\Debug\net6.0\Logger.csproj.AssemblyReference.cache
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\Logger\obj\Debug\net6.0\Logger.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\Logger\obj\Debug\net6.0\Logger.AssemblyInfoInputs.cache
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\Logger\obj\Debug\net6.0\Logger.AssemblyInfo.cs
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\Logger\obj\Debug\net6.0\Logger.csproj.CoreCompileInputs.cache
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\Logger\obj\Debug\net6.0\Logger.dll
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\Logger\obj\Debug\net6.0\refint\Logger.dll
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\Logger\obj\Debug\net6.0\Logger.pdb
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\Logger\obj\Debug\net6.0\ref\Logger.dll

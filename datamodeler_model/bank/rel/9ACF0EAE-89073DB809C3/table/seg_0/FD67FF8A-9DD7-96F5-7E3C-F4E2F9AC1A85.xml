@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FD67FF8A-9DD7-96F5-7E3C-F4E2F9AC1A85" name="Currency">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:28 UTC</createdTime>
+<generatorID>09FF8A20-E465-6E0B-203B-6993B6AECAFA</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="016F2414-BE53-2165-EB2F-5F80DFE9AFFD">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="name" id="EE532C8B-7CDA-1087-5AD5-24742A339B3D">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:19:12 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sign" id="597C51B8-B656-77A5-7F54-816897F6D81D">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:19:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="usd_conversion_rate" id="F1FB9BC6-27CF-D04F-2149-44E5ECE5B6DD">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:20:24 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,,3</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F6AD33C6-B6E7-AC1C-05A1-EBA53C5F8E19" name="Currency_PK">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="016F2414-BE53-2165-EB2F-5F80DFE9AFFD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

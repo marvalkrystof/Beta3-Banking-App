@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3DA4061F-F14B-A4DF-4D2D-D0234D5D5BEA" name="Personal_Account_Type">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:28 UTC</createdTime>
+<generatorID>8B62F826-F6D5-BF6B-A51F-053DD75A79E1</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="321CD414-4AA0-E587-D4FC-45BE5585AB00">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="type_name" id="4FC9EDBC-3F81-C9B7-A4D0-81C99AE71C93">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-25 10:46:16 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60</dataTypeSize>
+<ownDataTypeParameters>60,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="maintenance_fee" id="006BDDF6-EE34-EC91-5D29-31EADBA5C114">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-25 10:48:54 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A124B845-92A8-ECA6-4835-ABA6B2AB2E66" name="Personal_Account_Type_PK">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="321CD414-4AA0-E587-D4FC-45BE5585AB00"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

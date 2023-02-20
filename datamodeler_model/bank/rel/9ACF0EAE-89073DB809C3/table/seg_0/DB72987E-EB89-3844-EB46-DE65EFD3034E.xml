@@ -1,0 +1,150 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DB72987E-EB89-3844-EB46-DE65EFD3034E" name="Account">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:28 UTC</createdTime>
+<generatorID>9CA07C73-F68D-D626-FC07-045793615871</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="910F6D43-EB13-586C-69BE-2B8169C13E0A">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:28 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="Savings_Account_Type_id" id="467A3230-F2BA-651C-C100-A0617D36BB7B">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A1F37A86-A8ED-31B0-E8A2-50D14B57781B" referredColumn="A96A176E-69AA-2EB6-0F11-9C13EB05659D"/>
+</associations>
+</Column>
+<Column name="Personal_Account_Type_id" id="A9198AE5-B96C-3FCE-5F32-A29FABC13EFF">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E7CB106C-7ED9-1044-F5F5-9B4F07826924" referredColumn="321CD414-4AA0-E587-D4FC-45BE5585AB00"/>
+</associations>
+</Column>
+<Column name="Customer_id" id="52128C6A-9154-A0E0-F1CC-6F3F33F610D9">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="74C8EB0F-9E12-6EE7-4DD8-9DB3EBAAE770" referredColumn="B53F900B-9368-12D2-83CB-8789E74B6DC5"/>
+</associations>
+</Column>
+<Column name="Currency_id" id="F2676AC9-2690-94B7-F16D-D8D0138E56FE">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="306D5BDE-293A-B7DB-E070-44BAE7BCB6AE" referredColumn="016F2414-BE53-2165-EB2F-5F80DFE9AFFD"/>
+</associations>
+</Column>
+<Column name="balance" id="3EA9F0D4-D93A-7B0F-4F87-AC2BF32D1A53">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-25 10:57:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C31A9279-D052-8022-D7C1-11516ECDC7D4" name="Account_PK">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:28 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="910F6D43-EB13-586C-69BE-2B8169C13E0A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="174C7CE8-7F7C-7118-4547-04ED21CAD231" name="Account_Savings_Account_Type_FK">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<generatorID>8FBD9282-C961-AAA0-29E7-AC4A346FCFD0</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="467A3230-F2BA-651C-C100-A0617D36BB7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0ED0E191-1380-5D99-2DE0-5E58038FF3E1" name="Account_Personal_Account_Type_FK">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<generatorID>F97FF9D0-7887-419A-D339-9B7F2D5748B7</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A9198AE5-B96C-3FCE-5F32-A29FABC13EFF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E86C6A61-3110-2267-2844-474316754BB3" name="Account_Customer_FK">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<generatorID>5DCC6A3E-F6FC-B77F-78E7-8D6884FCBB18</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="52128C6A-9154-A0E0-F1CC-6F3F33F610D9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="14A6541D-745C-0C95-8DB1-CC63DC0F490D" name="Account_Currency_FK">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<generatorID>AA1515C5-7BFD-422A-4720-9DE16F10947F</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F2676AC9-2690-94B7-F16D-D8D0138E56FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,26 @@
+﻿@model List<Customer>
+<form>
+<select id="customers">
+		@foreach (var customer in Model)
+		{
+			<option value="@customer.Id">@customer.LastName @customer.FirstName</option>
+		}
+	</select>
+	<button type="button" id="show-button"> Show customer info</button>
+</form>
+
+<div id=customerInfo></div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>	
+	$(document).ready (function(){
+	$("#show-button").click(function(){
+		var customerId = document.getElementById("customers").value;
+		$('#customerInfo').load("/User/ShowCustomerInfo/" +customerId);
+	});
+});
+
+</script>
+
+

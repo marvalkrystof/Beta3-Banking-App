@@ -1,0 +1,26 @@
+﻿@model List<Meeting>
+
+
+
+<form>
+	<select id="meetings">
+@foreach (var meeting in Model) {
+		<option value="@meeting.Id">@meeting.Customer.LastName : @meeting.ShortDescription</option>
+}
+	</select>
+	<button type="button" id="show-button"> Show Meeting Data</button>
+</form>
+
+<div id=meetingInfo></div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>	
+	$(document).ready (function(){
+	$("#show-button").click(function(){
+		var meetingId = document.getElementById("meetings").value;
+		$('#meetingInfo').load("/Meeting/MeetingInfo/" +meetingId);
+	});
+});
+
+</script>
+

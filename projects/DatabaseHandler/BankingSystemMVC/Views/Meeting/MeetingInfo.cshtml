@@ -1,0 +1,14 @@
+﻿@model Meeting
+
+<h1>Subject: @Model.ShortDescription</h1>
+
+<h2>Customer: @Model.Customer.FirstName @Model.Customer.LastName</h2>
+<h2>Employee: @Model.Employee.FirstName @Model.Employee.LastName</h2>
+
+<h3>Request created: @Model.RequestCreatedDate</h3>
+
+@if(Model.MeetingDate != null) {
+<h3>Meeting date: @Model.MeetingDate</h3>
+}
+<h2>Description:</h2>
+<p>@Model.Text</p>

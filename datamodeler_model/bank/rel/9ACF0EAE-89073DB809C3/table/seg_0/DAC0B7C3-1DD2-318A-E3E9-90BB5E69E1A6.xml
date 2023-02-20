@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DAC0B7C3-1DD2-318A-E3E9-90BB5E69E1A6" name="Employee">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:28 UTC</createdTime>
+<generatorID>AD811C40-9351-8B8C-5AEE-4B3092BE9023</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="ADCC6C32-B444-A942-B678-578B9396A509">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="first_name" id="6DBE3EDE-EE54-7CE4-DDC3-2E6E5C11C400">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:01:06 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="last_name" id="F369C196-C6C8-0847-09CA-7EA9984CC035">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:01:24 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="phone_number" id="CE1805FD-431B-24D9-3F3B-838C3DC14C73">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:01:43 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<ownDataTypeParameters>,9,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email_address" id="C0B3B390-1B0C-16CF-9A35-7CAAB46D6140">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:06:33 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>70</dataTypeSize>
+<ownDataTypeParameters>70,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="address_street" id="897531C2-67EF-0E15-D9CC-9AD2615A2EA5">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:02:41 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60</dataTypeSize>
+<ownDataTypeParameters>60,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="address_street_number" id="221F680E-951B-8E3F-D6E5-155010AB9012">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:05:03 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="address_city" id="EC35B1A8-E470-7672-3D8A-A2685D59E194">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:03:22 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60</dataTypeSize>
+<ownDataTypeParameters>60,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="address_zip" id="32BC523D-AFAF-5BBF-92A3-03C91E65E172">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:05:25 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CAF95D53-1511-1D09-D935-FA8B9A760824" name="Employee_PK">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="ADCC6C32-B444-A942-B678-578B9396A509"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

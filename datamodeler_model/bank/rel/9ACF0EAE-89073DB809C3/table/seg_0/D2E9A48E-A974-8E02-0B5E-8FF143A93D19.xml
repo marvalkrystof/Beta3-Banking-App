@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D2E9A48E-A974-8E02-0B5E-8FF143A93D19" name="Bank_Transaction">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:28 UTC</createdTime>
+<generatorID>4E76C21F-6EE3-9358-E57B-3805531D2567</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<ordsAlias>transaction</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="5DE60104-8C4E-D8B5-554A-5813172BADE2">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:16:20 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="from_Account_id" id="5FFBAFF0-FF01-11E6-4D46-7DB927FAC6A5">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3FF6E423-41D8-B032-61C1-EEDF6E165071" referredColumn="910F6D43-EB13-586C-69BE-2B8169C13E0A"/>
+</associations>
+</Column>
+<Column name="to_Account_id" id="00E573EF-0C18-1D8D-27BE-F84E77ED3C5F">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="93EBB26C-BDFE-3D0C-7E05-4A888E7B1B0D" referredColumn="910F6D43-EB13-586C-69BE-2B8169C13E0A"/>
+</associations>
+</Column>
+<Column name="amount" id="73873E3E-E5D8-643B-5E19-F0BCCF8067F4">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:13:19 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="transaction_date" id="62E725D3-FBD0-C76A-22BE-268159CF6AE7">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:13:49 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="note" id="691A1062-B399-476A-4D3E-898E6F0798EB">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:15:11 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3764188E-99A8-9DBA-A545-00E059EFB23E" name="Transaction_PK">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:16:20 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5DE60104-8C4E-D8B5-554A-5813172BADE2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B8209892-D5C4-CBFF-B6E5-EFE7D77243DA" name="Transaction_Account_FK">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<generatorID>F72D5FB5-0A37-F072-2818-36D335CA878A</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5FFBAFF0-FF01-11E6-4D46-7DB927FAC6A5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="471B87F1-C694-72AE-5EEB-28E6D47D6385" name="Transaction_Account_FKv2">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<generatorID>7A504E0D-F9BE-B3E3-435C-1236E412DF8E</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00E573EF-0C18-1D8D-27BE-F84E77ED3C5F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

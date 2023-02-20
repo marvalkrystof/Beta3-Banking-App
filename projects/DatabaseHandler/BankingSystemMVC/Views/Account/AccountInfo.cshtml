@@ -1,0 +1,100 @@
+﻿@using BankingSystemMVC.ViewModels
+@model AccountInfoViewModel
+
+
+<h1>Account owner</h1>
+<p>@Model.Account.Customer.FirstName @Model.Account.Customer.LastName</p>
+
+
+<h2>Account Number</h2>
+<p>@Model.Account.AccountNumber</p>
+<h2>Balance</h2>
+<p>@Model.Account.Balance @Model.Account.Currency.Sign</p>
+
+
+<h2>Account Type</h2>
+@if(Model.Account.SavingsAccountType != null) {
+    <p>@Model.Account.SavingsAccountType.TypeName</p>
+    <p>Interest rate: @Model.Account.SavingsAccountType.InterestRate %</p>
+} else {
+    <p>@Model.Account.PersonalAccountType.TypeName</p>
+    <p>Maintanance fee: @Model.Account.PersonalAccountType.MaintenanceFee @Model.Account.Currency.Sign</p>
+}
+
+
+<h2>Account cards</h2>
+<table class="table">
+<thead>
+ <tr>
+      <th scope="col">Card brand</th>
+      <th scope="col">Card number</th>
+      <th scope="col">Issue date</th>
+      <th scope="col">Expire date</th>
+      <th scope="col">Debit</th>
+    </tr>
+</thead>
+<tbody>
+
+        @foreach (var card in @Model.Cards)
+        {
+            <tr>    
+            <td>@card.CardBrand.Name</td>
+            <td>@card.CardNumber</td>
+            <td>@card.IssueDate</td>
+            <td>@card.ExpireDate</td>
+            <td>@card.IsDebit</td>
+            </tr>
+        }
+</tbody>
+
+</table>
+
+
+<h2> Outgoing transactions</h2>
+<table class="table">
+<thead>
+ <tr>
+      <th scope="col">Receiving account number</th>
+      <th scope="col">Account owner</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Date</th>
+       <th scope="col">Note</th>
+    </tr>
+</thead>
+<tbody>
+@foreach ( var outgoing in @Model.Account.BankTransactionFromAccounts) {
+        <tr>    
+        <td>@outgoing.ToAccount.AccountNumber</td>
+        <td>@outgoing.ToAccount.Customer.FirstName @outgoing.ToAccount.Customer.LastName</td>
+	    <td>@outgoing.Amount @Model.Account.Currency.Sign</td>
+        <td>@outgoing.TransactionDate</td>
+        <td>@outgoing.Note</td>
+        </tr>
+}
+ </tbody>
+</table>
+
+ <h2> Incoming transactions</h2>
+ <table class="table">
+<thead>
+ <tr>
+      <th scope="col">Sending account number</th>
+      <th scope="col">Account owner</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Date</th>
+      <th scope="col">Note</th>
+    </tr>
+</thead>
+<tbody>
+            @foreach (var incoming in @Model.Account.BankTransactionToAccounts)
+            {
+            <tr>    
+            <td>@incoming.FromAccount.AccountNumber</td>
+            <td>@incoming.FromAccount.Customer.FirstName @incoming.FromAccount.Customer.LastName</td>
+            <td>@incoming.Amount @incoming.FromAccount.Currency.Sign</td>
+            <td>@incoming.TransactionDate</td>
+            <td>@incoming.Note</td>
+            </tr>
+            }
+ </tbody>
+ </table>

@@ -1,0 +1,23 @@
+﻿@model List<Account>
+
+<form>
+	<select id="accounts">
+@foreach (var account in Model) {
+		<option value="@account.Id">@account.AccountNumber</option>
+}
+	</select>
+	<button type="button" id="show-button"> Show Account Data</button>
+</form>
+
+<div id=accountInfo></div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>	
+	$(document).ready (function(){
+    $("#show-button").click(function(){
+		var accountId = document.getElementById("accounts").value;
+        $('#accountInfo').load("/Account/AccountInfo/" +accountId);
+    });
+});
+
+</script>

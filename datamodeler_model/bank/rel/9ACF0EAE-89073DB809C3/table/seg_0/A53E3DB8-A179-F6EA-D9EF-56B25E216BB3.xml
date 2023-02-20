@@ -1,0 +1,127 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A53E3DB8-A179-F6EA-D9EF-56B25E216BB3" name="Meeting">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:28 UTC</createdTime>
+<generatorID>732B52B6-7D2E-EDDD-94EA-0E794A4472F8</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="F04E04E3-44A3-19DB-A143-997D1033CBC3">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:10:40 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Employee_id" id="97F7E6CA-D408-560F-9050-3F744D0EF5D3">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E36572FF-E811-F0D7-70AA-7830145531BA" referredColumn="ADCC6C32-B444-A942-B678-578B9396A509"/>
+</associations>
+</Column>
+<Column name="Customer_id" id="F7FDAB65-FE63-CC12-C941-E13DDB670ABA">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7080DF51-33D6-E5F0-03FC-8BFDBBA20A86" referredColumn="B53F900B-9368-12D2-83CB-8789E74B6DC5"/>
+</associations>
+</Column>
+<Column name="short_description" id="2F6B4D13-D0AE-317B-01C9-A525C245885F">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:08:05 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="text" id="0B426CE6-7E8F-FB8A-7D26-8A746F42CAF7">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:08:29 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="request_created_date" id="1E9D332C-AD39-2E03-8F07-D283FB9DE2CD">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:09:11 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="meeting_date" id="7E54116F-B297-3073-54D1-871572366313">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:09:43 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EAFFF185-6E46-6734-8045-7711C3E57AF5" name="Meeting_PK">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:10:44 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F04E04E3-44A3-19DB-A143-997D1033CBC3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A60B7E7B-B789-79DB-DA86-D914EFA84425" name="Meeting_Employee_FK">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<generatorID>5DAF44CF-F89D-C2C7-3108-D13ED82EF79C</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="97F7E6CA-D408-560F-9050-3F744D0EF5D3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A3520458-3D00-616D-D8B1-D792C7351517" name="Meeting_Customer_FK">
+<createdBy>marva</createdBy>
+<createdTime>2023-01-24 21:00:29 UTC</createdTime>
+<generatorID>B1ADA440-B361-FBA9-5850-FE860BC080FD</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F7FDAB65-FE63-CC12-C941-E13DDB670ABA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

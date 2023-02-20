@@ -1,0 +1,63 @@
+﻿@model BankingSystemMVC.ViewModels.CreateMeetingViewModel
+
+@{
+    ViewData["Title"] = "CreateMeeting";
+}
+
+<h1>CreateMeeting</h1>
+<h4>Meeting</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateMeeting">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Meeting.EmployeeId" class="control-label"></label>
+                <select asp-for="Meeting.EmployeeId" class ="form-control">
+
+                    @foreach (var employee in Model.Employees)
+                    {
+                    <option value="@employee.Id">@employee.FirstName @employee.LastName</option>
+                    }
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.CustomerId" class="control-label"></label>
+                <select asp-for="Meeting.CustomerId" class ="form-control">
+                      @foreach (var customer in Model.Customers)
+                {
+                <option value="@customer.Id">@customer.FirstName @customer.LastName</option>
+                }
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.ShortDescription" class="control-label"></label>
+                <input asp-for="Meeting.ShortDescription" class="form-control" />
+                <span asp-validation-for="Meeting.ShortDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.Text" class="control-label"></label>
+                <input asp-for="Meeting.Text" class="form-control" />
+                <span asp-validation-for="Meeting.Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.MeetingDate" class="control-label"></label>
+                <input asp-for="Meeting.MeetingDate" class="form-control" />
+                <span asp-validation-for="Meeting.MeetingDate" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
