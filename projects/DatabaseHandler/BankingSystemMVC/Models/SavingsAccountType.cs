@@ -5,11 +5,26 @@ namespace BankingSystemMVC.Models;
 
 public partial class SavingsAccountType
 {
-    public int Id { get; set; }
+    public int Id 
+    { 
+        get; 
+        set;
+    }
 
-    public string TypeName { get; set; } = null!;
+    public string TypeName 
+    { 
+        get; 
+        set;
+    } = null!;
 
-    public decimal InterestRate { get; set; }
+    public decimal InterestRate 
+    { 
+        get; 
+        set;
+    }
 
-    public virtual ICollection<Account> Accounts { get; } = new List<Account>();
+    public virtual ICollection<Account> Accounts 
+    { 
+        get;
+    } = new List<Account>();
 }

@@ -1,4 +1,5 @@
 ﻿using BankingSystemMVC.Models;
+using BankingSystemMVC.RoleManagement;
 using BankingSystemMVC.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,28 +12,55 @@ namespace BankingSystemMVC.Controllers
 
         public IActionResult ShowEmployees()
         {
-            var employees = unitOfWork.EmployeeRepository.GetAll().ToList();
+            if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
+            {
 
-            return View(employees);
+                var employees = unitOfWork.EmployeeRepository.GetAll().ToList();
+
+                return View(employees);
+            }
+            else 
+            {
+                return RedirectToAction("NoPermission","Home");
+            }
         }
 
         public IActionResult ShowEmployeeInfo(int id)
         {
-            var employee = unitOfWork.EmployeeRepository.GetByID(id);
+            if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
+            {
 
-            return PartialView(employee);
+                var employee = unitOfWork.EmployeeRepository.GetByID(id);
+
+                return PartialView(employee);
+            }
+            else 
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
         }
+
 
         public IActionResult CreateEmployee()
         {
-            return View();
+            if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
+            {
+
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateEmployee(Employee employee)
         {
-            if (ModelState.IsValid)
+            if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
+            {
+              if (ModelState.IsValid)
             {
                 unitOfWork.EmployeeRepository.Insert(employee);
                 unitOfWork.Save();
@@ -40,29 +68,51 @@ namespace BankingSystemMVC.Controllers
             }
             else
             {
-                return RedirectToAction("/Home/");
+                return RedirectToAction("", "Home");
             }
+            }
+            else
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
+            
         }
 
         public IActionResult UpdateEmployees()
         {
-
+            if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
+            {
             var employees = unitOfWork.EmployeeRepository.GetAll().ToList();
 
             return View(employees);
+            }
+            else
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
+            
         }
 
         public IActionResult UpdateEmployee(int id)
         {
-            var employee = unitOfWork.EmployeeRepository.GetByID(id);
 
-            return PartialView(employee);
+            if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
+            {
+                var employee = unitOfWork.EmployeeRepository.GetByID(id);
+                return PartialView(employee);
+            }
+            else
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
+         
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult UpdateEmployee(Employee employee)
         {
-
+            if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
+            {
             if (ModelState.IsValid)
             {
                 unitOfWork.EmployeeRepository.Update(employee);
@@ -71,17 +121,34 @@ namespace BankingSystemMVC.Controllers
             }
             else
             {
-                return RedirectToAction("/Home/");
+                return RedirectToAction("","Home");
             }
+            }
+            else
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
+       
               
         }
 
         [HttpPost]
         public IActionResult DeleteEmployee(int id)
         {
+
+            if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
+            {
+
             unitOfWork.EmployeeRepository.Delete(id);
             unitOfWork.Save();
             return RedirectToAction("ShowEmployees");
+            }
+            else
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
+
+
         }
 
 
@@ -89,78 +156,146 @@ namespace BankingSystemMVC.Controllers
 
     public IActionResult ShowCustomers()
     {
-        var customers = unitOfWork.CustomerRepository.GetAll().ToList();
 
-        return View(customers);
+            if (PermissionChecker.hasPermission(HttpContext.Session, "employee"))
+            {
+            var customers = unitOfWork.CustomerRepository.GetAll().ToList();
+
+            return View(customers);
+            }
+            else
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
+            
     }
 
     public IActionResult ShowCustomerInfo(int id)
     {
-        var customer = unitOfWork.CustomerRepository.GetByID(id);
+            if (PermissionChecker.hasPermission(HttpContext.Session, "employee"))
+            {
+            var customer = unitOfWork.CustomerRepository.GetByID(id);
 
-        return PartialView(customer);
+             return PartialView(customer);
+            }
+            else
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
+
+            
     }
 
     public IActionResult CreateCustomer()
     {
-        return View();
+            if (PermissionChecker.hasPermission(HttpContext.Session, "employee"))
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
+
+           
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult CreateCustomer(Customer customer)
     {
-        if (ModelState.IsValid)
-        {
-            unitOfWork.CustomerRepository.Insert(customer);
-            unitOfWork.Save();
-            return RedirectToAction("CreateCustomer");
-        }
-        else
-        {
-            return RedirectToAction("/Home/");
-        }
+            if (PermissionChecker.hasPermission(HttpContext.Session, "employee"))
+            {
+                if (ModelState.IsValid)
+                    {
+                        unitOfWork.CustomerRepository.Insert(customer);
+                        unitOfWork.Save();
+                        return RedirectToAction("CreateCustomer");
+                    }
+                    else
+                    {
+                            return RedirectToAction("", "Home");
+                        }
+            }
+            else
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
+        
     }
 
     public IActionResult UpdateCustomers()
     {
+            if (PermissionChecker.hasPermission(HttpContext.Session, "employee"))
+            {
+             var customers = unitOfWork.CustomerRepository.GetAll().ToList();
 
-        var customers = unitOfWork.CustomerRepository.GetAll().ToList();
-
-        return View(customers);
+                    return View(customers);
+            }
+            else
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
+           
     }
 
     public IActionResult UpdateCustomer(int id)
     {
-        var customer = unitOfWork.CustomerRepository.GetByID(id);
+            if (PermissionChecker.hasPermission(HttpContext.Session, "employee"))
+            {
+            var customer = unitOfWork.CustomerRepository.GetByID(id);
 
-        return PartialView(customer);
+                    return PartialView(customer);
+            }
+            else
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
+
+            
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult UpdateCustomer(Customer customer)
     {
-
-        if (ModelState.IsValid)
-        {
-            unitOfWork.CustomerRepository.Update(customer);
-            unitOfWork.Save();
-            return RedirectToAction("UpdateCustomers");
-        }
-        else
-        {
-            return RedirectToAction("/Home/");
-        }
+            if (PermissionChecker.hasPermission(HttpContext.Session, "employee"))
+            {
+                 if (ModelState.IsValid)
+                    {
+                        unitOfWork.CustomerRepository.Update(customer);
+                        unitOfWork.Save();
+                        return RedirectToAction("UpdateCustomers");
+                    }
+                    else
+                    {
+                            return RedirectToAction("", "Home");
+                        }
+            }
+            else
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
+       
 
     }
 
     [HttpPost]
     public IActionResult DeleteCustomer(int id)
     {
-        unitOfWork.CustomerRepository.Delete(id);
-        unitOfWork.Save();
-        return RedirectToAction("ShowCustomers");
+
+            if (PermissionChecker.hasPermission(HttpContext.Session, "employee"))
+            {
+                    unitOfWork.CustomerRepository.Delete(id);
+                    unitOfWork.Save();
+                    return RedirectToAction("ShowCustomers");
+            }
+            else
+            {
+                return RedirectToAction("NoPermission", "Home");
+            }
+            
     }
+
 
 
 }

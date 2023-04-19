@@ -5,9 +5,20 @@ namespace BankingSystemMVC.Models;
 
 public partial class CardBrand
 {
-    public int Id { get; set; }
+    public int Id 
+    { 
+        get; 
+        set;
+    }
 
-    public string Name { get; set; } = null!;
+    public string Name 
+    { 
+        get; 
+        set; 
+    } = null!;
 
-    public virtual ICollection<Card> Cards { get; } = new List<Card>();
+    public virtual ICollection<Card> Cards 
+    { 
+        get;
+    } = new List<Card>();
 }

@@ -18,7 +18,13 @@ namespace BankingSystemMVC.UnitOfWork
         private Repository<Meeting> meetingRepository;
         private Repository<PersonalAccountType> personalAccountTypeRepository;
         private Repository<SavingsAccountType> savingAccountTypeRepository;
+        private Repository<UserAccount> userAccountRepository;
+        private Repository<Role> roleRepository;
+        private Repository<AccountRole> accountRoleRepository;
 
+
+
+ 
         public UnitOfWorkBank()
         {
 
@@ -123,6 +129,41 @@ namespace BankingSystemMVC.UnitOfWork
                 return savingAccountTypeRepository;
             }
         }
+
+        public Repository<AccountRole> AccountRoleRepository
+        {
+            get
+            {
+                if (this.accountRoleRepository == null)
+                {
+                    this.accountRoleRepository = new Repository<AccountRole>(context);
+                }
+                return accountRoleRepository;
+            }
+        }
+        public Repository<Role> RoleRepository
+        {
+            get
+            {
+                if (this.roleRepository == null)
+                {
+                    this.roleRepository = new Repository<Role>(context);
+                }
+                return roleRepository;
+            }
+        }
+        public Repository<UserAccount> UserAccountRepository
+        {
+            get
+            {
+                if (this.userAccountRepository == null)
+                {
+                    this.userAccountRepository = new Repository<UserAccount>(context);
+                }
+                return userAccountRepository;
+            }
+        }
+
 
         private bool disposed = false;
 

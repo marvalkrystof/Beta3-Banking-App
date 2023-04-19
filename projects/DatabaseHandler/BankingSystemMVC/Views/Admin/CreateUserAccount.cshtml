@@ -1,0 +1,58 @@
+﻿@model BankingSystemMVC.ViewModels.CreateUserAccountAppViewModel
+
+@{
+    ViewData["Title"] = "Create User Account";
+}
+
+<h1>Create User Account</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateUserAccount">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserAccount.EmployeeId" class="control-label"></label>
+                <select asp-for="UserAccount.EmployeeId" class ="form-control" id="employeeDropDown">
+                    <option value="-1"></option>
+                    @foreach (var employee in Model.Employees)
+                    {
+                    <option value="@employee.Id">@employee.FirstName @employee.LastName</option>
+                    }
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserAccount.CustomerId" class="control-label"></label>
+                <select asp-for="UserAccount.CustomerId" class ="form-control" id="customerDropDown">
+                    <option value="-1"></option>
+                    @foreach (var customer in Model.Customers)
+                {
+                <option value="@customer.Id">@customer.FirstName @customer.LastName</option>
+                }
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserAccount.Username" class="control-label"></label>
+                <input asp-for="UserAccount.Username" class="form-control" />
+                <span asp-validation-for="UserAccount.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserAccount.Password" class="control-label"></label>
+                <input asp-for="UserAccount.Password" type="password" class="form-control" />
+                <span asp-validation-for="UserAccount.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/my-js/CreateUserAccountApp.js"></script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

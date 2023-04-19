@@ -1,5 +1,6 @@
 ﻿
 using BankingSystemMVC.Models;
+using BankingSystemMVC.RoleManagement;
 using BankingSystemMVC.UnitOfWork;
 using BankingSystemMVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -15,13 +16,34 @@ namespace BankingSystemMVC.Controllers
         
         public IActionResult CreateTransaction()
         {
-            CreateTransactionViewModel model = new CreateTransactionViewModel
-            {
-                Accounts = unitOfWork.AccountRepository.GetAll().ToList()
-            };
-           
 
-            return View(model);
+            var allAccounts = unitOfWork.AccountRepository.GetAll().ToList();
+            if (PermissionChecker.hasPermission(HttpContext.Session, "employee"))
+            {
+                CreateTransactionViewModel model = new CreateTransactionViewModel
+                {
+                    UserAccounts = allAccounts,
+                    Accounts = allAccounts
+                };
+                return View(model);
+            }
+            else if (PermissionChecker.hasPermission(HttpContext.Session, "customer"))
+            {
+                var sessionUsername = HttpContext.Session.GetString("Username");
+                var appAccount = unitOfWork.UserAccountRepository.Get((userAccount) => userAccount.Username == sessionUsername).FirstOrDefault();
+                var accounts = unitOfWork.AccountRepository.Get((account) => account.CustomerId == appAccount.CustomerId).ToList();
+
+                CreateTransactionViewModel model = new CreateTransactionViewModel
+                {
+                    UserAccounts = accounts,
+                    Accounts = allAccounts
+                };
+                return View(model);
+            }
+            else
+            {
+                return RedirectToAction("NoPermission","Home");
+            }
         }
        
 
@@ -61,9 +83,10 @@ namespace BankingSystemMVC.Controllers
                 unitOfWork.Save();
 
                 return RedirectToAction("CreateTransaction");
-            } else
+            } 
+            else
             {
-                return RedirectToAction("/Home/");
+                return RedirectToAction("", "Home");
             }
 
         

@@ -2,13 +2,17 @@
 
 <h1>Subject: @Model.ShortDescription</h1>
 
-<h2>Customer: @Model.Customer.FirstName @Model.Customer.LastName</h2>
-<h2>Employee: @Model.Employee.FirstName @Model.Employee.LastName</h2>
+<p>Customer: @Model.Customer.FirstName @Model.Customer.LastName</p>
+<p>Employee: @Model.Employee.FirstName @Model.Employee.LastName</p>
 
-<h3>Request created: @Model.RequestCreatedDate</h3>
+<p>Request created: @Model.RequestCreatedDate</p>
 
 @if(Model.MeetingDate != null) {
-<h3>Meeting date: @Model.MeetingDate</h3>
+<p>Meeting date: @Model.MeetingDate</p>
 }
-<h2>Description:</h2>
+<h3>Description:</h3>
 <p>@Model.Text</p>
+
+    <form action="/Meeting/DeleteMeeting/@Model.Id" method="post">
+	<button id="delete-button"> Delete meeting</button>
+    </form>

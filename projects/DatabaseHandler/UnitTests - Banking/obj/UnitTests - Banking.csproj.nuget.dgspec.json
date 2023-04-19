@@ -34,6 +34,9 @@
             "projectReferences": {
               "C:\\Users\\marva\\Desktop\\beta3\\projects\\DatabaseHandler\\Logger\\Logger.csproj": {
                 "projectPath": "C:\\Users\\marva\\Desktop\\beta3\\projects\\DatabaseHandler\\Logger\\Logger.csproj"
+              },
+              "C:\\Users\\marva\\Desktop\\beta3\\projects\\SharpHash\\SharpHash.csproj": {
+                "projectPath": "C:\\Users\\marva\\Desktop\\beta3\\projects\\SharpHash\\SharpHash.csproj"
               }
             }
           }
@@ -74,7 +77,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.11, )"
+              "version": "[6.0.13, )"
             },
             "Microsoft.Web.Administration": {
               "target": "Package",
@@ -193,6 +196,9 @@
             "projectReferences": {
               "C:\\Users\\marva\\Desktop\\beta3\\projects\\DatabaseHandler\\BankingSystemMVC\\BankingSystemMVC.csproj": {
                 "projectPath": "C:\\Users\\marva\\Desktop\\beta3\\projects\\DatabaseHandler\\BankingSystemMVC\\BankingSystemMVC.csproj"
+              },
+              "C:\\Users\\marva\\Desktop\\beta3\\projects\\SharpHash\\SharpHash.csproj": {
+                "projectPath": "C:\\Users\\marva\\Desktop\\beta3\\projects\\SharpHash\\SharpHash.csproj"
               }
             }
           }
@@ -223,6 +229,10 @@
               "target": "Package",
               "version": "[17.1.0, )"
             },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "coverlet.collector": {
               "target": "Package",
               "version": "[3.1.2, )"
@@ -244,6 +254,72 @@
               "privateAssets": "all"
             }
           },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\marva\\Desktop\\beta3\\projects\\SharpHash\\SharpHash.csproj": {
+      "version": "1.2.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\marva\\Desktop\\beta3\\projects\\SharpHash\\SharpHash.csproj",
+        "projectName": "SharpHash",
+        "projectPath": "C:\\Users\\marva\\Desktop\\beta3\\projects\\SharpHash\\SharpHash.csproj",
+        "packagesPath": "C:\\Users\\marva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marva\\Desktop\\beta3\\projects\\SharpHash\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\marva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.0": {
+            "targetAlias": "netcoreapp2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.0": {
+          "targetAlias": "netcoreapp2.0",
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.0, )",
+              "autoReferenced": true
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }

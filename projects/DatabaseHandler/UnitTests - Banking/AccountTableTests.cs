@@ -8,12 +8,55 @@ using System.Data.Entity;
 using System.Transactions;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 using IsolationLevel = BankingSystemMVC.UnitOfWork.IsolationLevel;
+using System.Text.Json;
+using System.Configuration;
 
 namespace UnitTests___Banking
 {
     [TestClass]
     public class AccountTableTests
     {
+
+        IsolationLevel isolation;
+        [TestInitialize]
+        public void Initialize()
+        {
+            var path = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).FilePath;
+            isolation = new IsolationLevel();
+            isolation.SetIsolationLevel();
+        }
+
+        [TestCleanup]
+        public void Cleanup()
+        {
+        }
+
+
+
+        [TestMethod]
+        public void InsertUpdateDelete() 
+        {
+            UnitOfWorkBank uow = new UnitOfWorkBank();
+            CardBrand card = new CardBrand
+            {
+                Name = "Test"
+            };
+            uow.CardBrandRepository.Insert(card);
+            uow.Save();
+            var cardbrand = uow.CardBrandRepository.Get((cardbrand) => cardbrand.Name == "Test").FirstOrDefault();
+            Assert.AreEqual(cardbrand.Name, "Test");
+            cardbrand.Name = "Test2";
+            uow.CardBrandRepository.Update(cardbrand);
+            uow.Save();
+            cardbrand = uow.CardBrandRepository.Get((cardbrand) => cardbrand.Name == "Test2").FirstOrDefault();
+            Assert.AreEqual(cardbrand.Name, "Test2");
+            uow.CardBrandRepository.Delete(cardbrand);
+            uow.Save();
+            cardbrand = uow.CardBrandRepository.Get((cardbrand) => cardbrand.Name == "Test2").FirstOrDefault();
+            Assert.IsNull(cardbrand);
+        }
+
+
         [TestMethod]
         public void DirtyRead()
         {
@@ -23,7 +66,7 @@ namespace UnitTests___Banking
 
             decimal previousAccountBalance;
 
-            using (IDbContextTransaction transaction = uow.context.Database.BeginTransaction(IsolationLevel.GetIsolationLevel()))
+            using (IDbContextTransaction transaction = uow.context.Database.BeginTransaction(isolation.GetIsolationLevel()))
             {
                 var account = uow.AccountRepository.GetByID(1);
                 previousAccountBalance = account.Balance;
@@ -31,7 +74,7 @@ namespace UnitTests___Banking
                 uow.AccountRepository.Update(account);
                 uow.Save();
 
-                using (IDbContextTransaction transaction2 = uow2.context.Database.BeginTransaction(IsolationLevel.GetIsolationLevel()))
+                using (IDbContextTransaction transaction2 = uow2.context.Database.BeginTransaction(isolation.GetIsolationLevel()))
                 {
                     //dirty read
                     var account2 = uow2.AccountRepository.GetByID(1);
@@ -45,7 +88,7 @@ namespace UnitTests___Banking
             //account balance is back to original amount 
             uow = new UnitOfWorkBank();
 
-            using (IDbContextTransaction transaction = uow.context.Database.BeginTransaction(IsolationLevel.GetIsolationLevel()))
+            using (IDbContextTransaction transaction = uow.context.Database.BeginTransaction(isolation.GetIsolationLevel()))
             {
                 var accountAfterRollback = uow.AccountRepository.GetByID(1);
                 decimal accountBalanceAfterRollback;
@@ -61,12 +104,12 @@ namespace UnitTests___Banking
             UnitOfWorkBank uow = new UnitOfWorkBank();
             UnitOfWorkBank uow2 = new UnitOfWorkBank();
 
-            using (IDbContextTransaction transaction = uow.context.Database.BeginTransaction(IsolationLevel.GetIsolationLevel()))
+            using (IDbContextTransaction transaction = uow.context.Database.BeginTransaction(isolation.GetIsolationLevel()))
             {
                 var account = uow.AccountRepository.GetByID(1);
                 decimal balanceBefore = account.Balance;
 
-                using (IDbContextTransaction transaction2 = uow2.context.Database.BeginTransaction(IsolationLevel.GetIsolationLevel()))
+                using (IDbContextTransaction transaction2 = uow2.context.Database.BeginTransaction(isolation.GetIsolationLevel()))
                 {
                     var account2 = uow2.AccountRepository.GetByID(1);
                     account2.Balance += 1;
@@ -95,11 +138,11 @@ namespace UnitTests___Banking
             UnitOfWorkBank uow2 = new UnitOfWorkBank();
             Account testAccount;
 
-            using (IDbContextTransaction transaction = uow.context.Database.BeginTransaction(IsolationLevel.GetIsolationLevel()))
+            using (IDbContextTransaction transaction = uow.context.Database.BeginTransaction(isolation.GetIsolationLevel()))
             {
                 int accountCountBefore = uow.AccountRepository.GetAll().ToList().Count;
 
-                using (IDbContextTransaction transaction2 = uow2.context.Database.BeginTransaction(IsolationLevel.GetIsolationLevel()))
+                using (IDbContextTransaction transaction2 = uow2.context.Database.BeginTransaction(isolation.GetIsolationLevel()))
                 {
                     testAccount = new Account
                     {

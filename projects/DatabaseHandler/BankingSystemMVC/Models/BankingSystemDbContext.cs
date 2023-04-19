@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using BankingSystemMVC.UnitOfWork;
+﻿using BankingSystemMVC.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 
 namespace BankingSystemMVC.Models;
@@ -9,7 +7,6 @@ public partial class BankingSystemDbContext : DbContext
 {
     public BankingSystemDbContext()
     {
-        IsolationLevel.SetIsolationLevelContext(this, System.Data.IsolationLevel.ReadUncommitted);
     }
 
     public BankingSystemDbContext(DbContextOptions<BankingSystemDbContext> options)
@@ -18,6 +15,8 @@ public partial class BankingSystemDbContext : DbContext
     }
 
     public virtual DbSet<Account> Accounts { get; set; }
+
+    public virtual DbSet<AccountRole> AccountRoles { get; set; }
 
     public virtual DbSet<BankTransaction> BankTransactions { get; set; }
 
@@ -35,53 +34,22 @@ public partial class BankingSystemDbContext : DbContext
 
     public virtual DbSet<PersonalAccountType> PersonalAccountTypes { get; set; }
 
+    public virtual DbSet<Role> Roles { get; set; }
+
     public virtual DbSet<SavingsAccountType> SavingsAccountTypes { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public virtual DbSet<UserAccount> UserAccounts { get; set; }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder
         .LogTo(Logger.Logger.Log)
         .UseLazyLoadingProxies()
-        .UseSqlServer("Server=(localdb)\\Local;Database=Banking_System;User Id=Banking_App;Password=ahoj123;");
-         //.UseSqlServer(CreateConnectionString());
+        .UseSqlServer(IsolationLevel.GetConnectionString());
 
-
-    private string CreateConnectionString()
-    {
-        string server = System.Configuration.ConfigurationManager.AppSettings["server"];
-        if (server == null)
-        {
-            Logger.Logger.LogCriticalFailure("Server parameter in web config is null");
-        }
-
-        string database = System.Configuration.ConfigurationManager.AppSettings["database"];
-        if (database == null)
-        {
-            Logger.Logger.LogCriticalFailure("Database parameter in web config is null");
-        }
-
-        string username = System.Configuration.ConfigurationManager.AppSettings["username"];
-        if (username == null)
-        {
-            Logger.Logger.LogCriticalFailure("Username parameter in web config is null");
-        }
-
-
-        string password = System.Configuration.ConfigurationManager.AppSettings["password"];
-        if (password == null)
-        {
-            Logger.Logger.LogCriticalFailure("Password parameter in web config is null");
-        }
-
-        return String.Format("Server={0};Database={1};User Id={2};Password={3};",server,database,username,password);
-    }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
+    protected override void OnModelCreating(ModelBuilder modelBuilder)    {
         modelBuilder.HasDefaultSchema("db_owner");
 
-        modelBuilder.Entity<Account>(entity =>
-        {
+        modelBuilder.Entity<Account>(entity =>{
             entity.HasKey(e => e.Id).HasName("PK__Account__3213E83F35B3542F");
 
             entity.ToTable("Account", "dbo");
@@ -114,11 +82,28 @@ public partial class BankingSystemDbContext : DbContext
 
             entity.HasOne(d => d.SavingsAccountType).WithMany(p => p.Accounts)
                 .HasForeignKey(d => d.SavingsAccountTypeId)
-                .HasConstraintName("FK__Account__Savings__09A971A2");
-        });
+                .HasConstraintName("FK__Account__Savings__09A971A2"); });
 
-        modelBuilder.Entity<BankTransaction>(entity =>
-        {
+        modelBuilder.Entity<AccountRole>(entity => {
+            entity.HasKey(e => e.Id).HasName("PK__Account___3213E83F6D720290");
+
+            entity.ToTable("Account_Role", "dbo");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.RoleId).HasColumnName("Role_id");
+            entity.Property(e => e.UserAccountId).HasColumnName("User_Account_id");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.AccountRoles)
+                .HasForeignKey(d => d.RoleId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Account_R__Role___236943A5");
+
+            entity.HasOne(d => d.UserAccount).WithMany(p => p.AccountRoles)
+                .HasForeignKey(d => d.UserAccountId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Account_R__User___245D67DE"); });
+
+        modelBuilder.Entity<BankTransaction>(entity => {
             entity.HasKey(e => e.Id).HasName("PK__Bank_Tra__3213E83FC44D5609");
 
             entity.ToTable("Bank_Transaction", "dbo");
@@ -145,11 +130,9 @@ public partial class BankingSystemDbContext : DbContext
             entity.HasOne(d => d.ToAccount).WithMany(p => p.BankTransactionToAccounts)
                 .HasForeignKey(d => d.ToAccountId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Bank_Tran__to_Ac__10566F31");
-        });
+                .HasConstraintName("FK__Bank_Tran__to_Ac__10566F31");});
 
-        modelBuilder.Entity<Card>(entity =>
-        {
+        modelBuilder.Entity<Card>(entity =>{
             entity.HasKey(e => e.Id).HasName("PK__Card__3213E83F0FEDD804");
 
             entity.ToTable("Card", "dbo");
@@ -173,11 +156,9 @@ public partial class BankingSystemDbContext : DbContext
             entity.HasOne(d => d.CardBrand).WithMany(p => p.Cards)
                 .HasForeignKey(d => d.CardBrandId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Card__Card_Brand__787EE5A0");
-        });
+                .HasConstraintName("FK__Card__Card_Brand__787EE5A0");});
 
-        modelBuilder.Entity<CardBrand>(entity =>
-        {
+        modelBuilder.Entity<CardBrand>(entity => {
             entity.HasKey(e => e.Id).HasName("PK__Card_Bra__3213E83F306D7055");
 
             entity.ToTable("Card_Brand", "dbo");
@@ -188,11 +169,9 @@ public partial class BankingSystemDbContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(40)
                 .IsUnicode(false)
-                .HasColumnName("name");
-        });
+                .HasColumnName("name"); });
 
-        modelBuilder.Entity<Currency>(entity =>
-        {
+        modelBuilder.Entity<Currency>(entity => {
             entity.HasKey(e => e.Id).HasName("PK__Currency__3213E83F05D100AF");
 
             entity.ToTable("Currency", "dbo");
@@ -211,11 +190,9 @@ public partial class BankingSystemDbContext : DbContext
                 .HasColumnName("sign");
             entity.Property(e => e.UsdConversionRate)
                 .HasColumnType("decimal(28, 3)")
-                .HasColumnName("usd_conversion_rate");
-        });
+                .HasColumnName("usd_conversion_rate"); });
 
-        modelBuilder.Entity<Customer>(entity =>
-        {
+        modelBuilder.Entity<Customer>(entity => {
             entity.HasKey(e => e.Id).HasName("PK__Customer__3213E83FB6A9054A");
 
             entity.ToTable("Customer", "dbo");
@@ -249,11 +226,9 @@ public partial class BankingSystemDbContext : DbContext
                 .HasColumnName("last_name");
             entity.Property(e => e.PhoneNumber)
                 .HasColumnType("numeric(9, 0)")
-                .HasColumnName("phone_number");
-        });
+                .HasColumnName("phone_number"); });
 
-        modelBuilder.Entity<Employee>(entity =>
-        {
+        modelBuilder.Entity<Employee>(entity => {
             entity.HasKey(e => e.Id).HasName("PK__Employee__3213E83F939DC5AA");
 
             entity.ToTable("Employee", "dbo");
@@ -290,8 +265,7 @@ public partial class BankingSystemDbContext : DbContext
                 .HasColumnName("phone_number");
         });
 
-        modelBuilder.Entity<Meeting>(entity =>
-        {
+        modelBuilder.Entity<Meeting>(entity =>{
             entity.HasKey(e => e.Id).HasName("PK__Meeting__3213E83F97C075DF");
 
             entity.ToTable("Meeting", "dbo");
@@ -324,8 +298,8 @@ public partial class BankingSystemDbContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Meeting__Employe__00200768");
         });
-        modelBuilder.Entity<PersonalAccountType>(entity =>
-        {
+
+        modelBuilder.Entity<PersonalAccountType>(entity =>{
             entity.HasKey(e => e.Id).HasName("PK__Personal__3213E83F9954654C");
 
             entity.ToTable("Personal_Account_Type", "dbo");
@@ -341,8 +315,21 @@ public partial class BankingSystemDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("type_name");
         });
-        modelBuilder.Entity<SavingsAccountType>(entity =>
+
+        modelBuilder.Entity<Role>(entity =>
         {
+            entity.HasKey(e => e.Id).HasName("PK__Role__3213E83FD3FE3DE1");
+
+            entity.ToTable("Role", "dbo");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Name)
+                .HasMaxLength(60)
+                .IsUnicode(false)
+                .HasColumnName("name");
+        });
+
+        modelBuilder.Entity<SavingsAccountType>(entity =>{
             entity.HasKey(e => e.Id).HasName("PK__Savings___3213E83FF86B190B");
 
             entity.ToTable("Savings_Account_Type", "dbo");
@@ -358,6 +345,34 @@ public partial class BankingSystemDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("type_name");
         });
+
+        modelBuilder.Entity<UserAccount>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__User_Acc__3213E83F8BA8E664");
+
+            entity.ToTable("User_Account", "dbo");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CustomerId).HasColumnName("Customer_id");
+            entity.Property(e => e.EmployeeId).HasColumnName("Employee_id");
+            entity.Property(e => e.Password)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .HasColumnName("password");
+            entity.Property(e => e.Username)
+                .HasMaxLength(60)
+                .IsUnicode(false)
+                .HasColumnName("username");
+            
+            entity.HasOne(d => d.Customer).WithMany(p => p.UserAccounts)
+                .HasForeignKey(d => d.CustomerId)
+                .HasConstraintName("FK__User_Acco__Custo__208CD6FA");
+
+            entity.HasOne(d => d.Employee).WithMany(p => p.UserAccounts)
+                .HasForeignKey(d => d.EmployeeId)
+                .HasConstraintName("FK__User_Acco__Emplo__1F98B2C1");
+       
+            });
 
         OnModelCreatingPartial(modelBuilder);
     }

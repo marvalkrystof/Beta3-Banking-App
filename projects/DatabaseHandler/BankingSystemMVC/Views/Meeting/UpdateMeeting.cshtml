@@ -1,0 +1,59 @@
+﻿@model BankingSystemMVC.ViewModels.UpdateMeetingViewModel
+
+<h4>Meeting</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateMeeting">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="meeting.Id" />
+            <div class="form-group">
+                <label asp-for="meeting.EmployeeId" class="control-label"></label>
+                <select asp-for="meeting.EmployeeId" class="form-control">
+                    @foreach (var employee in Model.employees)
+                    {
+                    <option value="@employee.Id">@employee.FirstName @employee.LastName</option>
+                    }
+                </select>
+                <span asp-validation-for="meeting.EmployeeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="meeting.CustomerId" class="control-label"></label>
+                <select asp-for="meeting.CustomerId" class="form-control">
+                    @foreach (var customer in Model.customers)
+                    {
+                        <option value="@customer.Id">@customer.FirstName @customer.LastName</option>
+                    }
+                </select>
+                <span asp-validation-for="meeting.CustomerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="meeting.ShortDescription" class="control-label"></label>
+                <input asp-for="meeting.ShortDescription" class="form-control" />
+                <span asp-validation-for="meeting.ShortDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="meeting.Text" class="control-label"></label>
+                <input asp-for="meeting.Text" class="form-control" />
+                <span asp-validation-for="meeting.Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="meeting.RequestCreatedDate" class="control-label"></label>
+                <input asp-for="meeting.RequestCreatedDate" class="form-control" />
+                <span asp-validation-for="meeting.RequestCreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="meeting.MeetingDate" class="control-label"></label>
+                <input asp-for="meeting.MeetingDate" class="form-control" />
+                <span asp-validation-for="meeting.MeetingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

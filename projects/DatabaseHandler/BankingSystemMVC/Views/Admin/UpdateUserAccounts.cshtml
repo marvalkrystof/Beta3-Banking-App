@@ -1,0 +1,17 @@
+﻿@model List<UserAccount>
+
+	
+<form>
+	<select id="accounts">
+@foreach (var account in Model) {
+		<option value="@account.Id">@account.Username</option>
+}
+	</select>
+	<button type="button" id="show-button"> Show Account to update</button>
+</form>
+
+<div id=roleInfo></div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/my-js/UserAppAccounts.js"></script>

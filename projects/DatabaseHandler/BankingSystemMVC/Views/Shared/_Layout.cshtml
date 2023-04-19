@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@using BankingSystemMVC.RoleManagement
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -21,55 +25,95 @@
                     <ul class="navbar-nav flex-grow-1">
                         
 
-                            
-                      <li class="nav-item dropdown text-dark">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Accounts
-                      </a>
-                      <ul class="dropdown-menu text-dark" aria-labelledby="navbarDropdown">
-                        <li><a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Account" asp-action="Accounts">Account information</a></li>
+                      @if (PermissionChecker.hasPermission(HttpContextAccessor.HttpContext.Session, "customer") ||(PermissionChecker.hasPermission(HttpContextAccessor.HttpContext.Session, "employee")))
+                        {
+                            <li class="nav-item dropdown text-dark">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Accounts
+                                </a>
+                                <ul class="dropdown-menu text-dark" aria-labelledby="navbarDropdown">
+                                    <li><a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Account" asp-action="Accounts">Account information</a></li>
 
-                      </ul>
-                       </li>
+                                </ul>
+                            </li>
+                        }
+                        @if (PermissionChecker.hasPermission(HttpContextAccessor.HttpContext.Session, "customer")||(PermissionChecker.hasPermission(HttpContextAccessor.HttpContext.Session, "employee")))
+                        {
+                            <li class="nav-item dropdown text-dark">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Meetings
+                                </a>
+                                <ul class="dropdown-menu text-dark" aria-labelledby="navbarDropdown">
 
-                       <li class="nav-item dropdown text-dark">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Meetings
-                      </a>
-                      <ul class="dropdown-menu text-dark" aria-labelledby="navbarDropdown">
-                        <li> <a class="nav-link text-dark" asp-area="" asp-controller="Meeting" asp-action="Meetings">Meeting information</a></li>
-                         <li> <a class="nav-link text-dark" asp-area="" asp-controller="Meeting" asp-action="CreateMeeting">Create meeting</a></li>  
-                        </ul>
-                       </li>
 
-                          <li class="nav-item dropdown text-dark">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                       Transactions
-                      </a>
-                      <ul class="dropdown-menu text-dark" aria-labelledby="navbarDropdown">
-                        <li> <a class="nav-link text-dark" asp-area="" asp-controller="BankTransaction" asp-action="CreateTransaction">Create new transaction</a></li>
-                      </ul>
-                       </li>
+                                    <li> <a class="nav-link text-dark" asp-area="" asp-controller="Meeting" asp-action="Meetings">Meeting information</a></li>
+                                    <li> <a class="nav-link text-dark" asp-area="" asp-controller="Meeting" asp-action="CreateMeeting">Create meeting</a></li>
+                                    @if (PermissionChecker.hasPermission(HttpContextAccessor.HttpContext.Session, "employee"))
+                                    {
+                                    <li> <a class="nav-link text-dark" asp-area="" asp-controller="Meeting" asp-action="UpdateMeetings">Update meeting</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                        @if (PermissionChecker.hasPermission(HttpContextAccessor.HttpContext.Session, "customer"))
+                            {
+                                <li class="nav-item dropdown text-dark">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Transactions
+                                    </a>
+                                    <ul class="dropdown-menu text-dark" aria-labelledby="navbarDropdown">
+                                        <li> <a class="nav-link text-dark" asp-area="" asp-controller="BankTransaction" asp-action="CreateTransaction">Create new transaction</a></li>
+                                    </ul>
+                                </li>
+                            }
+                        @if (PermissionChecker.hasPermission(HttpContextAccessor.HttpContext.Session, "employee"))
+                        {
+                            <li class="nav-item dropdown text-dark">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Users
+                                </a>
+                              
+                                <ul class="dropdown-menu text-dark" aria-labelledby="navbarDropdown">
+                                    @if (PermissionChecker.hasPermission(HttpContextAccessor.HttpContext.Session, "admin"))
+                                    {
+                                    <li> <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="ShowEmployees">Show employees</a></li>
+                                    <li> <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="CreateEmployee">Create employee</a></li>
+                                    <li> <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="UpdateEmployees">Update employees</a></li>
+                                    }
+                                    <li> <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="ShowCustomers">Show customers</a></li>
+                                    <li> <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="CreateCustomer">Create customer</a></li>
+                                    <li> <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="UpdateCustomers">Update customers</a></li>
 
-                      <li class="nav-item dropdown text-dark">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Users
-                      </a>
-                      <ul class="dropdown-menu text-dark" aria-labelledby="navbarDropdown">
-                           <li> <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="ShowEmployees">Show employees</a></li>
-                        <li> <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="CreateEmployee">Create employee</a></li>
-                          <li> <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="UpdateEmployees">Update employees</a></li>
-         
-                                        <li> <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="ShowCustomers">Show customers</a></li>
-                        <li> <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="CreateCustomer">Create customer</a></li>
-                          <li> <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="UpdateCustomers">Update customers</a></li>
+                                </ul>
+                            </li>
+                        }
 
-                      </ul>
-                       </li>
+                        @if (PermissionChecker.hasPermission(HttpContextAccessor.HttpContext.Session, "admin"))
+                        {
+
+                            <li class="nav-item dropdown text-dark">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Admin
+                                </a>
+                                <ul class="dropdown-menu text-dark" aria-labelledby="navbarDropdown">
+                                    <li> <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="RoleManager">Manage user roles</a></li>
+                                    <li> <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="CreateUserAccount">Create app account</a></li>
+                                    <li> <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="UpdateUserAccounts">Update app account</a></li>
+                                </ul>
+                            </li>
+                        } 
 
 
                     </ul>
                 </div>
+                @if(string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Username"))) {
+                    <a class="float-right" asp-area="" asp-controller="Login" asp-action="Login">Login </a>
+                }
+                else {
+                    <a class="float-right" asp-area="" asp-controller="User_Account" asp-action="Index"> @HttpContextAccessor.HttpContext.Session.GetString("Username") </a>
+                    <a class="float-right" asp-area="" asp-controller="Login" asp-action="LogOut">Log Out</a>
+                }
+                
             </div>
         </nav>
     </header>
@@ -78,7 +122,6 @@
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - Banking System

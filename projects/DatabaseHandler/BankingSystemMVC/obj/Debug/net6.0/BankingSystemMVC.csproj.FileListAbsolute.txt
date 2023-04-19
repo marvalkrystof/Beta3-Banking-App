@@ -293,8 +293,10 @@ C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\BankingSystemMVC\bin\Debug
 C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\BankingSystemMVC\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\BankingSystemMVC\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\BankingSystemMVC\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\BankingSystemMVC\bin\Debug\net6.0\app.config
 C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\BankingSystemMVC\bin\Debug\net6.0\BankingSystemMVC.dll.config
 C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\BankingSystemMVC\bin\Debug\net6.0\Microsoft.Web.Administration.dll
 C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\BankingSystemMVC\bin\Debug\net6.0\runtimes\unix\lib\netstandard1.5\System.ServiceProcess.ServiceController.dll
 C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\BankingSystemMVC\bin\Debug\net6.0\runtimes\win\lib\netstandard1.5\System.ServiceProcess.ServiceController.dll
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\BankingSystemMVC\bin\Debug\net6.0\SharpHash.dll
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\BankingSystemMVC\bin\Debug\net6.0\SharpHash.pdb
+C:\Users\marva\Desktop\beta3\projects\DatabaseHandler\BankingSystemMVC\bin\Debug\net6.0\app.config

@@ -1,0 +1,22 @@
+﻿@using BankingSystemMVC.ViewModels
+@model UserAccountInfoViewModel
+
+<H1>Application account info</H1>
+<h3>Status: </h3> 
+
+@if(Model.userAccount.EmployeeId != null) {
+	<p>Employee</p>
+	<p>Name: @Model.userAccount.Employee.FirstName @Model.userAccount.Employee.LastName</p>
+}
+else {
+	<p>Customer</p>
+	<p>Name: @Model.userAccount.Customer.FirstName @Model.userAccount.Customer.LastName</p>
+}
+@if(Model.roles.Count != 0) {
+	<h3>Role list:</h3>
+	foreach (var role in Model.roles)
+	{
+		<p>@role.Name</p>
+	}
+}
+

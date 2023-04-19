@@ -1,0 +1,59 @@
+﻿@model BankingSystemMVC.ViewModels.UpdateUserAppAccountViewModel
+
+<h1>Update User Account</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateUserAccount">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="account.Id" />
+            <div class="form-group">
+                <label asp-for="account.EmployeeId" class="control-label"></label>
+                <select asp-for="account.EmployeeId" class="form-control" id="employeeDropDown">
+      <option value="-1"></option>
+                    @foreach (var employee in Model.employees)
+                    {
+                    <option value="@employee.Id">@employee.FirstName @employee.LastName</option>
+                    }
+
+                </select>
+                <span asp-validation-for="account.EmployeeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="account.CustomerId" class="control-label"></label>
+                <select asp-for="account.CustomerId" class="form-control" id="customerDropDown">
+                    <option value="-1"></option>
+                    @foreach (var customer in Model.customers)
+                    {
+                    <option value="@customer.Id">@customer.FirstName @customer.LastName</option>
+                    }
+                </select>
+                <span asp-validation-for="account.CustomerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="account.Username" class="control-label"></label>
+                <input asp-for="account.Username" class="form-control" />
+                <span asp-validation-for="account.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="account.Password" class="control-label"></label>
+                <input asp-for="account.Password" type="password" class="form-control" />
+                <span asp-validation-for="account.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <form action="/Admin/DeleteUserAccount/@Model.account.Id" method="post">
+        <button id="delete-button"> Delete account</button>
+    </form>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/my-js/UpdateUserAccountApp.js"></script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

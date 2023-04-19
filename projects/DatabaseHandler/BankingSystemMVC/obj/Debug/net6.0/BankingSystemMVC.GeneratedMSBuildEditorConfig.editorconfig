@@ -23,6 +23,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2NvdW50cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Admin/CreateUserAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlVXNlckFjY291bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Admin/RoleManager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUm9sZU1hbmFnZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Admin/UpdateUserAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlVXNlckFjY291bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Admin/UpdateUserAccounts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlVXNlckFjY291bnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Admin/UserRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlclJvbGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/BankTransaction/CreateTransaction.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFua1RyYW5zYWN0aW9uXENyZWF0ZVRyYW5zYWN0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -35,8 +55,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Home/NoPermission.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOb1Blcm1pc3Npb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Login/AlreadyLoggedIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cQWxyZWFkeUxvZ2dlZEluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Login/FailedLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cRmFpbGVkTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Meeting/CreateMeeting.cshtml]
@@ -51,16 +87,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVldGluZ1xNZWV0aW5ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Meeting/UpdateMeeting.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVldGluZ1xVcGRhdGVNZWV0aW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Meeting/UpdateMeetings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVldGluZ1xVcGRhdGVNZWV0aW5ncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Shared/_Footer.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Shared/_NavBar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZCYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
@@ -105,6 +141,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/User/UpdateEmployees.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVcGRhdGVFbXBsb3llZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/User_Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcl9BY2NvdW50XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/marva/Desktop/beta3/projects/DatabaseHandler/BankingSystemMVC/Views/_ViewImports.cshtml]

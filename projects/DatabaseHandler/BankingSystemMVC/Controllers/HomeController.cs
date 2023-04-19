@@ -18,6 +18,11 @@ namespace BankingSystemMVC.Controllers
             return View();
         }
 
+        public IActionResult NoPermission()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

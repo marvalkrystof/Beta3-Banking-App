@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A4214B23-2657-D8B4-6A7D-0B4CD7F2A3C8" name="Role">
+<createdBy>marva</createdBy>
+<createdTime>2023-03-29 09:43:40 UTC</createdTime>
+<generatorID>7DE0D428-348D-6090-23B7-58FD21E06E8B</generatorID>
+<ownerDesignName>bank</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="2C49BAD7-325B-8A48-C5EC-7099BBEEC618">
+<createdBy>marva</createdBy>
+<createdTime>2023-03-29 09:43:40 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="name" id="287BE99C-A70A-E300-8342-BA90C4611753">
+<createdBy>marva</createdBy>
+<createdTime>2023-03-31 08:39:09 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60</dataTypeSize>
+<ownDataTypeParameters>60,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4D3B3DB0-E1F3-19E1-4DE3-52C40414243D" name="Application_Role_PK">
+<createdBy>marva</createdBy>
+<createdTime>2023-03-29 09:43:40 UTC</createdTime>
+<ownerDesignName>bank</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="2C49BAD7-325B-8A48-C5EC-7099BBEEC618"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

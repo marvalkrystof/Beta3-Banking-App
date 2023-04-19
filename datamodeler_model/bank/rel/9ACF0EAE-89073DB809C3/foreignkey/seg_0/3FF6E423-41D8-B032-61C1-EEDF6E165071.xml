@@ -10,7 +10,7 @@
 <keyObject>C31A9279-D052-8022-D7C1-11516ECDC7D4</keyObject>
 <referredKeyID>C31A9279-D052-8022-D7C1-11516ECDC7D4</referredKeyID>
 <mandatory>true</mandatory>
-<refColNames>Account_ID</refColNames>
+<refColNames>id</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

@@ -13,12 +13,5 @@
 
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script>	
-	$(document).ready (function(){
-	$("#show-button").click(function(){
-		var employeeId = document.getElementById("employees").value;
-		$('#employeeInfo').load("/User/UpdateEmployee/" +employeeId);
-	});
-});
+<script src="~/my-js/UpdateEmployees.js"></script>
 
-</script>

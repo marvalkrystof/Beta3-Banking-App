@@ -5,11 +5,26 @@ namespace BankingSystemMVC.Models;
 
 public partial class PersonalAccountType
 {
-    public int Id { get; set; }
+    public int Id 
+    { 
+        get; 
+        set;
+    }
 
-    public string TypeName { get; set; } = null!;
+    public string TypeName 
+    { 
+        get; 
+        set; 
+    } = null!;
 
-    public decimal MaintenanceFee { get; set; }
+    public decimal MaintenanceFee 
+    { 
+        get; 
+        set;
+    }
 
-    public virtual ICollection<Account> Accounts { get; } = new List<Account>();
+    public virtual ICollection<Account> Accounts 
+    { 
+        get;
+    } = new List<Account>();
 }

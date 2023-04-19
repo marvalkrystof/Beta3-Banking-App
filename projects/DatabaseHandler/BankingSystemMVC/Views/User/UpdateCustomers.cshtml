@@ -13,12 +13,4 @@
 
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script>	
-	$(document).ready (function(){
-	$("#show-button").click(function(){
-		var customerId = document.getElementById("customers").value;
-		$('#customerInfo').load("/User/UpdateCustomer/" +customerId);
-	});
-});
-
-</script>
+<script src="~/my-js/UpdateCustomers.js"></script>	

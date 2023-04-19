@@ -51,4 +51,14 @@ insert into Bank_Transaction(from_Account_id, to_Account_id, amount, transaction
 insert into Bank_Transaction(from_Account_id, to_Account_id, amount, transaction_date, note) values (3,4,200,'2022-04-04',null);
 insert into Bank_Transaction(from_Account_id, to_Account_id, amount, transaction_date, note) values (3,1,500,'2022-05-05','Happy birthday');
 
-commit;
+insert into User_Account(Employee_id,username,password) values (1,'admin','21232f297a57a5a743894a0e4a801fc3'); 
+
+
+
+insert into Role(name) values ('admin');
+insert into Role(name) values ('employee');
+insert into Role(name) values ('customer');
+
+insert into Account_Role(Role_id, User_Account_id) values (1,1);
+
+commit transaction;

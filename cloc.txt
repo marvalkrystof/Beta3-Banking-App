@@ -1,0 +1,6 @@
+CLOC
+. --exclude-dir=TestResults,packages --fullpath --not-match-d="BankingSystemMVC/wwwroot/lib|BankingSystemMVC/bin|UnitTests - Banking/obj|BankingSystemMVC/obj|UnitTests - Banking/bin|.vs"
+
+CLOC BY FILE
+
+. --by-file --exclude-dir=TestResults,packages --fullpath --not-match-d="BankingSystemMVC/wwwroot/lib|BankingSystemMVC/bin|UnitTests - Banking/obj|BankingSystemMVC/obj|UnitTests - Banking/bin|.vs"

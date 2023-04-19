@@ -123,4 +123,36 @@ CREATE TABLE Bank_Transaction
     )
 
 
+	
+CREATE TABLE Role 
+    (
+     id int NOT NULL PRIMARY KEY IDENTITY, 
+     name VARCHAR (60) NOT NULL 
+    )
+
+
+CREATE TABLE User_Account 
+    (
+     id int NOT NULL PRIMARY KEY IDENTITY, 
+     Employee_id int foreign key references Employee(id), 
+     Customer_id int foreign key references Customer(id) , 
+     username VARCHAR (60) NOT NULL unique, 
+     password VARCHAR (MAX) NOT NULL 
+    )
+
+	
+CREATE TABLE Account_Role 
+    (
+     id int NOT NULL IDENTITY PRIMARY KEY, 
+     Role_id int NOT NULL FOREIGN KEY references Role(id), 
+     User_Account_id int NOT NULL FOREIGN KEY references User_Account(id) 
+    )
+
+ALTER TABLE User_Account 
+    ADD CONSTRAINT FKArc_4 CHECK ( 
+        (  (Employee_id IS NOT NULL) AND 
+         (Customer_id IS NULL) ) OR 
+        (  (Customer_id IS NOT NULL) AND 
+         (Employee_id IS NULL) ));
+
 COMMIT;
