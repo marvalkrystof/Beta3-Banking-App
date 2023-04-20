@@ -12,10 +12,17 @@ using System.Text.Json;
 
 namespace BankingSystemMVC.Controllers
 {
+    /// <summary>
+    /// Controller that handles the admin actions
+    /// </summary>
     public class AdminController : Controller
     {
         private UnitOfWorkBank uow = new UnitOfWorkBank();
 
+        /// <summary>
+        /// Serves user account role data 
+        /// </summary>
+        /// <returns>View, If you have permission to view it</returns>
         public IActionResult RoleManager()
         {
             if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
@@ -30,6 +37,11 @@ namespace BankingSystemMVC.Controllers
 
         }
 
+        /// <summary>
+        /// Shows user role data for the specific user account
+        /// </summary>
+        /// <param name="id">Account id</param>
+        /// <returns>View with the roles</returns>
         public PartialViewResult UserRoles(int id)
         {
             if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
@@ -63,6 +75,11 @@ namespace BankingSystemMVC.Controllers
 
         }
 
+        /// <summary>
+        /// Handles data from the post request of the UserRoles action and updates them in the DB
+        /// </summary>
+        /// <param name="roles">Json with the roles</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult UserRoles(string roles)
         {
@@ -121,6 +138,10 @@ namespace BankingSystemMVC.Controllers
             }
         }
 
+        /// <summary>
+        /// View with the form which create app user accounts
+        /// </summary>
+        /// <returns>The view</returns>
         public IActionResult CreateUserAccount()
         {
             if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
@@ -139,6 +160,12 @@ namespace BankingSystemMVC.Controllers
 
 
         }
+
+        /// <summary>
+        /// Handles the post request for creating the user app account
+        /// </summary>
+        /// <param name="accountModel">Account creation view model</param>
+        /// <returns>Redirect to page</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateUserAccount(CreateUserAccountAppViewModel accountModel)
@@ -181,6 +208,10 @@ namespace BankingSystemMVC.Controllers
                 return RedirectToAction("NoPermission", "Home");
             }
         }
+        /// <summary>
+        /// Selection of user accounts to update
+        /// </summary>
+        /// <returns>The view</returns>
         public IActionResult UpdateUserAccounts()
         {
             if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
@@ -196,6 +227,11 @@ namespace BankingSystemMVC.Controllers
 
         }
 
+        /// <summary>
+        /// Returns form for updating the specific user account
+        /// </summary>
+        /// <param name="id">Account id</param>
+        /// <returns>The view</returns>
         public IActionResult UpdateUserAccount(int id)
         {
             if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
@@ -219,6 +255,12 @@ namespace BankingSystemMVC.Controllers
             }
 
         }
+
+        /// <summary>
+        /// Handles the post request for the updated of the user account and updates it in the DB.
+        /// </summary>
+        /// <param name="userAccount">Update user account view model</param>
+        /// <returns>Redirect to view</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult UpdateUserAccount(UpdateUserAppAccountViewModel userAccount)
@@ -265,6 +307,12 @@ namespace BankingSystemMVC.Controllers
                 return RedirectToAction("NoPermission", "Home");
             }
         }
+
+        /// <summary>
+        /// Handles the post request for the deletion of the user account
+        /// </summary>
+        /// <param name="id">id of the account</param>
+        /// <returns>Redirect</returns>
         [HttpPost]
         public IActionResult DeleteUserAccount(int id)
         {

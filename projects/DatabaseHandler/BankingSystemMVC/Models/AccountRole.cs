@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace BankingSystemMVC.Models;
-
+/// <summary>
+/// Class representing the relation table between webapp Account and their Roles
+/// </summary>
 public partial class AccountRole
 {
     public int Id 

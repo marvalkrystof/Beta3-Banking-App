@@ -9,9 +9,18 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BankingSystemMVC.Controllers
 {
+
+/// <summary>
+/// Controller that serves information about bank accounts
+/// </summary>
     public class AccountController : Controller
     {
         private UnitOfWorkBank unitOfWork = new UnitOfWorkBank();
+
+        /// <summary>
+        /// Returns accounts available to the user
+        /// </summary>
+        /// <returns>View with the accounts select</returns>
         public IActionResult Accounts()
         {
             if (PermissionChecker.hasPermission(HttpContext.Session, "employee"))
@@ -33,7 +42,11 @@ namespace BankingSystemMVC.Controllers
             
         }
 
-
+        /// <summary>
+        /// Serves the information of aspecific account
+        /// </summary>
+        /// <param name="id">Account id</param>
+        /// <returns>Partial View with the accounts</returns>
         public PartialViewResult AccountInfo(int id)
         {
             if (PermissionChecker.hasPermission(HttpContext.Session, "customer") || PermissionChecker.hasPermission(HttpContext.Session, "employee"))

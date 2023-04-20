@@ -4,6 +4,9 @@ using System.Text.Json.Serialization;
 
 namespace BankingSystemMVC.Models;
 
+/// <summary>
+/// Model representing the Role from the DB.
+/// </summary>
 public partial class Role
 {
     public int Id 

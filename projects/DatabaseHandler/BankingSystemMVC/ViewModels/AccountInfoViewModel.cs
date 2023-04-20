@@ -2,6 +2,9 @@
 
 namespace BankingSystemMVC.ViewModels
 {
+    /// <summary>
+    /// View model used for displaying account information
+    /// </summary>
     public class AccountInfoViewModel
     {
 

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace BankingSystemMVC.Models;
 
+/// <summary>
+/// Model representing the Currency table in the DB
+/// </summary>
 public partial class Currency
 {
     public int Id 

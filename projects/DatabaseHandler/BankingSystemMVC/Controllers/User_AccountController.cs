@@ -6,9 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BankingSystemMVC.Controllers
 {
+/// <summary>
+/// Serves actions used for user web app account
+/// </summary>
     public class User_AccountController : Controller
     {
         private UnitOfWorkBank uow = new UnitOfWorkBank();
+        /// <summary>
+        /// Serves information about user web account information
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult Index()
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))

@@ -5,11 +5,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BankingSystemMVC.Controllers
 {
+    /// <summary>
+    /// Serves requests for queries about customer and employee entitites
+    /// </summary>
     public class UserController : Controller
     {
         private UnitOfWorkBank unitOfWork = new UnitOfWorkBank();
 
 
+        /// <summary>
+        /// Returns list of employees for the user
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult ShowEmployees()
         {
             if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
@@ -25,6 +32,11 @@ namespace BankingSystemMVC.Controllers
             }
         }
 
+        /// <summary>
+        /// Shows info about specific employee
+        /// </summary>
+        /// <param name="id">Id of the employee</param>
+        /// <returns>View</returns>
         public IActionResult ShowEmployeeInfo(int id)
         {
             if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
@@ -40,7 +52,10 @@ namespace BankingSystemMVC.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Form for the creation of the employees
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult CreateEmployee()
         {
             if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
@@ -54,6 +69,11 @@ namespace BankingSystemMVC.Controllers
             }
         }
 
+        /// <summary>
+        /// Handles the post request for the employee creation and updates it in the DB. 
+        /// </summary>
+        /// <param name="employee">Employee data</param>
+        /// <returns>View</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateEmployee(Employee employee)
@@ -77,7 +97,10 @@ namespace BankingSystemMVC.Controllers
             }
             
         }
-
+        /// <summary>
+        /// Returns list of the employees to update
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult UpdateEmployees()
         {
             if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
@@ -93,6 +116,11 @@ namespace BankingSystemMVC.Controllers
             
         }
 
+        /// <summary>
+        /// Returns form for the updation of the specific employee
+        /// </summary>
+        /// <param name="id">Id of the employee</param>
+        /// <returns>View</returns>
         public IActionResult UpdateEmployee(int id)
         {
 
@@ -107,6 +135,11 @@ namespace BankingSystemMVC.Controllers
             }
          
         }
+        /// <summary>
+        /// Handles the post request of the employee updation
+        /// </summary>
+        /// <param name="employee">Employee object</param>
+        /// <returns>Redirect</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult UpdateEmployee(Employee employee)
@@ -131,7 +164,11 @@ namespace BankingSystemMVC.Controllers
        
               
         }
-
+        /// <summary>
+        /// Handles the post request for the employee deletion
+        /// </summary>
+        /// <param name="id">Id of the employee</param>
+        /// <returns>Redirect</returns>
         [HttpPost]
         public IActionResult DeleteEmployee(int id)
         {
@@ -153,7 +190,10 @@ namespace BankingSystemMVC.Controllers
 
 
     
-
+        /// <summary>
+        /// Returns list of the customers for the user
+        /// </summary>
+        /// <returns>View</returns>
     public IActionResult ShowCustomers()
     {
 
@@ -169,7 +209,11 @@ namespace BankingSystemMVC.Controllers
             }
             
     }
-
+        /// <summary>
+        /// Information about specific customer
+        /// </summary>
+        /// <param name="id">Id of the customer</param>
+        /// <returns>View</returns>
     public IActionResult ShowCustomerInfo(int id)
     {
             if (PermissionChecker.hasPermission(HttpContext.Session, "employee"))
@@ -185,7 +229,10 @@ namespace BankingSystemMVC.Controllers
 
             
     }
-
+        /// <summary>
+        /// Form for creation of the customer
+        /// </summary>
+        /// <returns>View</returns>
     public IActionResult CreateCustomer()
     {
             if (PermissionChecker.hasPermission(HttpContext.Session, "employee"))
@@ -200,6 +247,11 @@ namespace BankingSystemMVC.Controllers
            
     }
 
+        /// <summary>
+        /// Handles post request for creation of the customer
+        /// </summary>
+        /// <param name="customer">Customer object</param>
+        /// <returns>Redirect</returns>
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult CreateCustomer(Customer customer)
@@ -224,6 +276,10 @@ namespace BankingSystemMVC.Controllers
         
     }
 
+        /// <summary>
+        /// Returns list of customers to update
+        /// </summary>
+        /// <returns>View</returns>
     public IActionResult UpdateCustomers()
     {
             if (PermissionChecker.hasPermission(HttpContext.Session, "employee"))
@@ -238,7 +294,11 @@ namespace BankingSystemMVC.Controllers
             }
            
     }
-
+        /// <summary>
+        /// Form for updation of the specific customer
+        /// </summary>
+        /// <param name="id">Id of the customer</param>
+        /// <returns>View</returns>
     public IActionResult UpdateCustomer(int id)
     {
             if (PermissionChecker.hasPermission(HttpContext.Session, "employee"))
@@ -254,6 +314,11 @@ namespace BankingSystemMVC.Controllers
 
             
     }
+        /// <summary>
+        /// Handles the post request of the customer update and updates it in the db
+        /// </summary>
+        /// <param name="customer">Customer object</param>
+        /// <returns>Redirect</returns>
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult UpdateCustomer(Customer customer)
@@ -278,7 +343,11 @@ namespace BankingSystemMVC.Controllers
        
 
     }
-
+        /// <summary>
+        /// Handles the deletion of the customer, and deletes it from the DB.
+        /// </summary>
+        /// <param name="id">Id of the specific customer</param>
+        /// <returns>Redirect</returns>
     [HttpPost]
     public IActionResult DeleteCustomer(int id)
     {

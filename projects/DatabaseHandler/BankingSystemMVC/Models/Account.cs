@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace BankingSystemMVC.Models;
 
+/// <summary>
+/// Class representing the bank Account table
+/// </summary>
 public partial class Account
 {
     public int Id 

@@ -6,6 +6,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BankingSystemMVC.Models;
 
+/// <summary>
+/// Model representing the Meeting table from the DB.
+/// </summary>
 public partial class Meeting
 {
     public int Id 

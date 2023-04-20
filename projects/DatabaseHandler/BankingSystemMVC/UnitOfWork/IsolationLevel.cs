@@ -5,21 +5,17 @@ using System.Configuration;
 
 namespace BankingSystemMVC.UnitOfWork
 {
+    /// <summary>
+    /// Used for manipulation with the isolation level of the connection
+    /// </summary>
     public class IsolationLevel
     {
 
         private System.Data.IsolationLevel isolationLevel;
 
-        public static string GetConnectionString() 
-        {
-            string connectionString = System.Configuration.ConfigurationManager.AppSettings["connectionString"];
-            if(string.IsNullOrEmpty(connectionString)) 
-               {
-                Logger.Logger.LogCriticalFailure("Connection string is null or empty");
-            }
-            return connectionString;
-        }
-
+        /// <summary>
+        /// Loads the isolation level from the config and sets it as the objects variable.
+        /// </summary>
         public void SetIsolationLevel()
         {
             string isolationLevelString = System.Configuration.ConfigurationManager.AppSettings["isolationLevel"];
@@ -55,13 +51,21 @@ namespace BankingSystemMVC.UnitOfWork
 
             Logger.Logger.Log("Switched to " + isolationLevel.ToString());
         }
+
+        /// <summary>
+        /// Returns the isolation level
+        /// </summary>
+        /// <returns></returns>
         public System.Data.IsolationLevel GetIsolationLevel()
         {
             return isolationLevel;
         }
        
 
-
+        /// <summary>
+        /// Gets isolation level from the DbContext
+        /// </summary>
+        /// <param name="context">DbContext</param>
         private static void GetIsolationLevelContext(BankingSystemDbContext context)
         {
 
@@ -73,6 +77,12 @@ namespace BankingSystemMVC.UnitOfWork
             
         }
 
+
+        /// <summary>
+        /// Sets the isolation level for the DbContext
+        /// </summary>
+        /// <param name="context">DbContext</param>
+        /// <param name="isolationLevel">Isolation level</param>
         public static void SetIsolationLevelContext(BankingSystemDbContext context,System.Data.IsolationLevel isolationLevel) {
 
             string isolationLevelString = "";
@@ -109,11 +119,24 @@ namespace BankingSystemMVC.UnitOfWork
 
 
         }
+        /// <summary>
+        /// Gets the connection string from the config file.
+        /// </summary>
+        /// <returns>Connection string</returns>
+        public static string GetConnectionString()
+        {
+            string connectionString = System.Configuration.ConfigurationManager.AppSettings["connectionString"];
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                Logger.Logger.LogCriticalFailure("Connection string is null or empty");
+            }
+            return connectionString;
+        }
 
-    
-    
-    
-    
+
+
+
+
     }
 
 

@@ -2,6 +2,9 @@
 
 namespace BankingSystemMVC.ViewModels
 {
+    /// <summary>
+    /// Model used for passing information to CreateUserAccount view
+    /// </summary>
     public class CreateUserAccountAppViewModel
     {
 

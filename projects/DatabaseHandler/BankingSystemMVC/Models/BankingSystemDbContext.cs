@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BankingSystemMVC.Models;
 
+/// <summary>
+/// Context, used for operations with the DB
+/// </summary>
 public partial class BankingSystemDbContext : DbContext
 {
     public BankingSystemDbContext()
@@ -14,6 +17,8 @@ public partial class BankingSystemDbContext : DbContext
     {
     }
 
+    /// Dbsets for each table in the Database
+    
     public virtual DbSet<Account> Accounts { get; set; }
 
     public virtual DbSet<AccountRole> AccountRoles { get; set; }
@@ -40,12 +45,20 @@ public partial class BankingSystemDbContext : DbContext
 
     public virtual DbSet<UserAccount> UserAccounts { get; set; }
 
+    /// <summary>
+    /// Configuration of the context
+    /// </summary>
+    /// <param name="optionsBuilder"></param>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder
         .LogTo(Logger.Logger.Log)
         .UseLazyLoadingProxies()
         .UseSqlServer(IsolationLevel.GetConnectionString());
 
+    /// <summary>
+    /// Specifiyng the relationships between the tables in the context
+    /// </summary>
+    /// <param name="modelBuilder"></param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)    {
         modelBuilder.HasDefaultSchema("db_owner");
 

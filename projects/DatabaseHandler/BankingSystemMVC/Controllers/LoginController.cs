@@ -11,15 +11,18 @@ using System.Text;
 
 namespace BankingSystemMVC.Controllers
 {
+    /// <summary>
+    /// Handles the authentication of the site
+    /// </summary>
     public class LoginController : Controller
     {
         UnitOfWorkBank uow = new UnitOfWorkBank();
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-     
+        
+        /// <summary>
+        /// Login form for the login
+        /// </summary>
+        /// <returns>The view</returns>
         public IActionResult Login()
         {
             if(!string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))
@@ -30,6 +33,11 @@ namespace BankingSystemMVC.Controllers
         }
 
         
+        /// <summary>
+        /// Handles the post of the login form and logs in the user and stores the session
+        /// </summary>
+        /// <param name="userAccount">User Account</param>
+        /// <returns>Redirect</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Login(UserAccount userAccount)
@@ -70,15 +78,28 @@ namespace BankingSystemMVC.Controllers
             }
 
         }
+        /// <summary>
+        /// View returned when login failed for any reason
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult FailedLogin()
         {
             return View();
         }
         
+        /// <summary>
+        /// Returned if user is already logged in and call the login action
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult AlreadyLoggedIn()
         {
             return View();
         }
+
+        /// <summary>
+        /// Called when user logs out, deletes his sessions
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult LogOut()
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))

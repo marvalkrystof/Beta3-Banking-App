@@ -7,10 +7,16 @@ using Microsoft.AspNetCore.Mvc.Razor.Compilation;
 
 namespace BankingSystemMVC.Controllers
 {
-
+    /// <summary>
+    /// Serves requests towards meeting operations
+    /// </summary>
     public class MeetingController : Controller
     {
         private UnitOfWorkBank unitOfWork = new UnitOfWorkBank();
+        /// <summary>
+        /// Returns list of all meetings
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult Meetings()
         {
             if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
@@ -41,6 +47,11 @@ namespace BankingSystemMVC.Controllers
             }
                 
             }
+        /// <summary>
+        /// Returns info about specific meeting
+        /// </summary>
+        /// <param name="id">Meeting id</param>
+        /// <returns>View</returns>
 
         public PartialViewResult MeetingInfo(int id)
         {
@@ -49,6 +60,10 @@ namespace BankingSystemMVC.Controllers
             return PartialView(meetings);
         }
 
+        /// <summary>
+        /// Returns form for meeting creation
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult CreateMeeting()
         {
             if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
@@ -95,6 +110,11 @@ namespace BankingSystemMVC.Controllers
 
         }
 
+        /// <summary>
+        /// Handles post request meeting creation and stores it in the DB.
+        /// </summary>
+        /// <param name="model">Create Meeting model</param>
+        /// <returns>View</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateMeeting(CreateMeetingViewModel model)
@@ -122,7 +142,10 @@ namespace BankingSystemMVC.Controllers
               
         }
 
-
+        /// <summary>
+        /// Returns list of meetings to update
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult UpdateMeetings()
         {
             if (PermissionChecker.hasPermission(HttpContext.Session, "admin"))
@@ -142,6 +165,11 @@ namespace BankingSystemMVC.Controllers
                 return RedirectToAction("NoPermission", "Home");
             }
         }
+        /// <summary>
+        /// Returns the update form for the specific meeting
+        /// </summary>
+        /// <param name="id">id of the meeting</param>
+        /// <returns>View</returns>
         public IActionResult UpdateMeeting(int id)
         {
             var meetings = unitOfWork.MeetingRepository.GetByID(id);
@@ -158,6 +186,11 @@ namespace BankingSystemMVC.Controllers
             return PartialView(model); 
         }
 
+        /// <summary>
+        /// Handles the post request of the meeting   
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult UpdateMeeting(UpdateMeetingViewModel model)
@@ -176,7 +209,11 @@ namespace BankingSystemMVC.Controllers
             }
 
         }
-
+        /// <summary>
+        /// Handles the post request for the deletion of the meeting, deletes it from the DB
+        /// </summary>
+        /// <param name="id">Id of the meeting</param>
+        /// <returns>Redirect</returns>
         [HttpPost]
         public IActionResult DeleteMeeting(int id)
         {

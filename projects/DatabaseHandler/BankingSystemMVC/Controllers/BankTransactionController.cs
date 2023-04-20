@@ -8,12 +8,18 @@ using Microsoft.AspNetCore.Razor.Language.Intermediate;
 
 namespace BankingSystemMVC.Controllers
 {
+    /// <summary>
+    /// Controller that controls the actions for the bank transactions.
+    /// </summary>
     public class BankTransactionController : Controller
     {
         private UnitOfWorkBank unitOfWork = new UnitOfWorkBank();
   
 
-        
+        /// <summary>
+        /// Serves the view with data for creating the bank transaction
+        /// </summary>
+        /// <returns>The view</returns>
         public IActionResult CreateTransaction()
         {
 
@@ -46,7 +52,11 @@ namespace BankingSystemMVC.Controllers
             }
         }
        
-
+        /// <summary>
+        /// Handles the post request of the createtransaction action and saves it into the db, does the conversion rate
+        /// </summary>
+        /// <param name="model">Create treansaction view model</param>
+        /// <returns>Redirect</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateTransaction(CreateTransactionViewModel model)
@@ -91,12 +101,22 @@ namespace BankingSystemMVC.Controllers
 
         
         }
-
+        /// <summary>
+        /// Returned if you don't have enough money on the selected account
+        /// </summary>
+        /// <returns>The view</returns>
         public IActionResult NotEnoughMoney()
         {
             return View();
         }
 
+        /// <summary>
+        /// Converts one currency to the other
+        /// </summary>
+        /// <param name="amount">Amount of money</param>
+        /// <param name="usdConversionRateSender">Usd conversion rate of the currency of the sender</param>
+        /// <param name="usdConvertsionRateReceiver">Usd conversion rate of the currency of the receiver</param>
+        /// <returns>Converted currency</returns>
         private decimal ConvertCurrency(decimal amount,decimal usdConversionRateSender, decimal usdConvertsionRateReceiver )
         {
             return Math.Round((amount / usdConversionRateSender) * usdConvertsionRateReceiver,2);

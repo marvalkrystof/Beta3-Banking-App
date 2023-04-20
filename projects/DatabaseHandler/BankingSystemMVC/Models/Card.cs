@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace BankingSystemMVC.Models;
 
+/// <summary>
+/// Model representing the Card table in the DB, used for Credit card information tied to the bank Accounts
+/// </summary>
 public partial class Card
 {
     public int Id 

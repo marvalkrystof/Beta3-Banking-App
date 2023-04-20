@@ -2,6 +2,10 @@
 
 namespace BankingSystemMVC.ViewModels
 {
+
+    /// <summary>
+    /// Model used for passing info to UpdateMeeting view
+    /// </summary>
     public class UpdateMeetingViewModel
     {
         public Meeting meeting 

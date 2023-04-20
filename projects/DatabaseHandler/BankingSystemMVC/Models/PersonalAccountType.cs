@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace BankingSystemMVC.Models;
 
+/// <summary>
+/// Model representing the Personal Account Type from the DB.
+/// </summary>
 public partial class PersonalAccountType
 {
     public int Id 

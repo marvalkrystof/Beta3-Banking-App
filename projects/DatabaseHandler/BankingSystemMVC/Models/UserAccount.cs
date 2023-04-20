@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BankingSystemMVC.Models;
 
+/// <summary>
+/// Model representing the UserAccount - (webapp) account from the db.
+/// </summary>
 public partial class UserAccount
 {
     public int Id 

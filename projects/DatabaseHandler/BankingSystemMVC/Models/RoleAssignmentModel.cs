@@ -1,5 +1,9 @@
 ﻿namespace BankingSystemMVC.Models
 {
+
+    /// <summary>
+    /// Model used for role assignement, when receiving JSON with role data from RoleManagement
+    /// </summary>
     public class RoleAssignmentModel
     {
 

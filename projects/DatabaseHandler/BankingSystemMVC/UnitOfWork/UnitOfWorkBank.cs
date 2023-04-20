@@ -7,6 +7,8 @@ namespace BankingSystemMVC.UnitOfWork
     public class UnitOfWorkBank : IUnitOfWork
     {
 
+        // Repositories for each table in the Db
+
         public BankingSystemDbContext context = new BankingSystemDbContext();
         private Repository<Account> accountRepository;
         private Repository<BankTransaction> bankTransactionRepository;
@@ -29,6 +31,8 @@ namespace BankingSystemMVC.UnitOfWork
         {
 
         }
+
+        //Singletons for the repositories
         public Repository<Account> AccountRepository { 
             
             get {
@@ -185,6 +189,9 @@ namespace BankingSystemMVC.UnitOfWork
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Save changes in the context
+        /// </summary>
         public void Save()
         {
             context.SaveChanges();

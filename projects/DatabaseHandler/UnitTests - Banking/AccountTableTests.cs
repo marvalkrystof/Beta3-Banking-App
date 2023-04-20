@@ -13,6 +13,9 @@ using System.Configuration;
 
 namespace UnitTests___Banking
 {
+    /// <summary>
+    /// Unit testts for database operations performed on the Account table
+    /// </summary>
     [TestClass]
     public class AccountTableTests
     {
@@ -32,7 +35,9 @@ namespace UnitTests___Banking
         }
 
 
-
+        /// <summary>
+        /// Tests the 3 basic database operations.
+        /// </summary>
         [TestMethod]
         public void InsertUpdateDelete() 
         {
@@ -57,6 +62,9 @@ namespace UnitTests___Banking
         }
 
 
+        /// <summary>
+        /// Tests the dirty read anomaly with the current isolation level set
+        /// </summary>
         [TestMethod]
         public void DirtyRead()
         {
@@ -98,6 +106,10 @@ namespace UnitTests___Banking
             }
         }
 
+
+        /// <summary>
+        /// Tests the non repeatable read anomaly with the current isolation level set
+        /// </summary>
         [TestMethod]
         public void NonRepeatableRead()
         {
@@ -130,6 +142,11 @@ namespace UnitTests___Banking
 
         }
 
+
+
+        /// <summary>
+        /// Tests the phantom read anomaly with the current isolation level set
+        /// </summary>
 
         [TestMethod]
         public void PhantomRead()

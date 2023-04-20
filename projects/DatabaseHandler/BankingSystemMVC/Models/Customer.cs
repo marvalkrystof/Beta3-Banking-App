@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BankingSystemMVC.Models;
 
+/// <summary>
+/// Model representing the Customer table from the DB
+/// </summary>
 public partial class Customer
 {
     public int Id 

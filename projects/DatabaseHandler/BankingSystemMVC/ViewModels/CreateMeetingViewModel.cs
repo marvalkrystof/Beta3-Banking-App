@@ -2,6 +2,9 @@
 
 namespace BankingSystemMVC.ViewModels
 {
+    /// <summary>
+    /// Model used for displaying data in the Create Meeting view
+    /// </summary>
     public class CreateMeetingViewModel
     {
 
